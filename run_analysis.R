@@ -18,16 +18,15 @@ f<- read.table("features.txt")
 
 mstd <- grep("-(mean|std)\\(\\)", f[,2])
 
-extractx<- extractx[,mstd]
-names(extractx) <- f[mstd, 2]
+bindx<- bindx[,mstd]
+names(bindx) <- f[mstd, 2]
 
 activityname <- read.table("activity_labels.txt")
-correcty[,1] <- activityname[correcty[,1],2]
-names(correcty) <- "activity"
+bindy[,1] <- activityname[bindy[,1],2]
+names(bindy) <- "activity"
 
 names(binds) <- "subject"
-allbind <- cbind(extractx, correcty, binds)
+allbind <- cbind(bindx, bindy, binds)
 
 write.table(allbind, "bounddata.txt", row.name=FALSE)
 
-names(
