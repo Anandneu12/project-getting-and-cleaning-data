@@ -28,6 +28,6 @@ names(correcty) <- "activity"
 names(binds) <- "subject"
 allbind <- cbind(extractx, correcty, binds)
 
-
+write.table(allbind, "bounddata.txt", row.name=FALSE)
 
 names(
